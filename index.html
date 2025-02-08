@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkTech Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1{
+            font-size: 4.5rem;
+        }
+        header {
+            background: #003300;
+            padding: 20px;
+        }
+
+        .description {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            border-left: 4px solid #00ff00;
+        }
+        .qualifications {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+            padding: 10px;
+        }
+        .qualifications div {
+            margin: 10px 0;
+        }
+        .bar {
+            background: #004d00;
+            height: 20px;
+            width: 100%;
+            position: relative;
+        }
+        .bar span {
+            display: block;
+            height: 100%;
+            background: #00ff00;
+        }
+        footer {
+            background: #003300;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .socials a {
+            color: #00ff00;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+
+
+.glitch {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ff00;
+    position: relative;
+    text-transform: uppercase;
+    animation: glitch 0.3s infinite alternate;
+    text-align: center;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #058105;
+    background: transparent;
+    overflow: hidden;
+}
+
+.glitch::before {
+    animation: glitchBefore 0.3s infinite alternate;
+    color: #0e910e;
+    left: 2px;
+    top: -2px;
+    z-index: 1; /* Ensure visibility */
+}
+
+.glitch::after {
+    animation: glitchAfter 0.3s infinite alternate;
+    color: rgba(0, 0, 0, 0.027)f00;
+    left: -2px;
+    top: 2px;
+    z-index: 1; /* Ensure visibility */
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes glitchBefore {
+    0% { clip-path: inset(0 0 0 0); transform: translate(0); }
+    25% { clip-path: inset(50% 0 0 0); transform: translate(-3px, -3px); }
+    50% { clip-path: inset(0 0 50% 0); transform: translate(3px, 3px); }
+    75% { clip-path: inset(50% 0 0 0); transform: translate(-3px, -3px); }
+    100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+}
+
+@keyframes glitchAfter {
+    0% { clip-path: inset(0 0 0 0); transform: translate(0); }
+    25% { clip-path: inset(50% 0 0 0); transform: translate(3px, 3px); }
+    50% { clip-path: inset(0 0 50% 0); transform: translate(-3px, -3px); }
+    75% { clip-path: inset(50% 0 0 0); transform: translate(3px, 3px)   ; }
+    100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+}
+.space{
+    margin: 10px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KMT</h1>
+        <p class="glitch" data-text="In the shadow...">In the shadow...</p>
+    </header>
+    <div class="description">
+        <p>Welcome to My Portfolio , showcasing My skills</p>
+    </div>
+    <div class="qualifications">
+        <h2>Skills</h2>
+        <div>Cybersecurity <div class="bar"><span style="width: 90%;"></span></div></div>
+        <div>Web Development <div class="bar"><span style="width: 99%;"></span></div></div>
+        <div>Back-end Development <div class="bar"><span style="width: 60%;"></span></div></div>
+        <div>Chess <div class="bar"><span style="width: 75%;"></span></div></div>
+        <div>3D game Development <div class="bar"><span style="width: 50%;"></span></div></div>
+        <div>2D game Development<div class="bar"><span style="width: 90%;"></span></div></div>
+        <div>Reverse Engineering <div class="bar"><span style="width: 75%;"></span></div></div>
+        <div>Photo/ Video Editing <div class="bar"><span style="width: 73%;"></span></div></div>
+        <div>3D Design <div class="bar"><span style="width: 67%;"></span></div></div>
+        <div>Minecraft <div class="bar"><span style="width: 98%;"></span></div></div>
+    </div>
+    <p class="space">   </p>
+    <footer>
+        <div class="socials">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+</body>
+</html>
