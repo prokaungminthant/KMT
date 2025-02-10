@@ -18,13 +18,17 @@
             background-attachment:fixed;
             background-position-x: right;
             background-size: cover;
+            overflow-x: hidden;
         }
         h1{
             font-size: 4.5rem;
+            z-index: 1;
+            position: relative;
         }
         header {
             background: #003300;
             padding: 20px;
+            position: relative;
         }
 
         .description {
@@ -134,10 +138,18 @@
 .space{
     margin: 10px;
 }
+#matrixCanvas{
+    position: absolute;
+    left: 0px;
+    margin: 0px;
+    top: 0px;
+    z-index: 0;
+}
     </style>
 </head>
 <body>
     <header>
+        <canvas id="matrixCanvas"></canvas>
         <h1>KMT</h1>
         <p class="glitch" data-text="In the shadow...">In the shadow...</p>
     </header>
@@ -166,5 +178,44 @@
             <a href="#">YouTube</a>
         </div>
     </footer>
+    <script>
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+    
+        canvas.width = window.innerWidth;
+        canvas.height = 375; // Adjusted to fit the header
+    
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const matrixChars = characters.split("");
+    
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(0);
+    
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontSize + "px monospace";
+    
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+    
+        setInterval(drawMatrix, 50);
+    
+        // Resize canvas when the window resizes
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+        });
+    </script>
 </body>
 </html>
