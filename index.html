@@ -20,6 +20,9 @@
             background-size: cover;
             overflow-x: hidden;
         }
+        ::-webkit-scrollbar {
+    display: none;
+}
         h1{
             font-size: 4.5rem;
             z-index: 1;
@@ -38,20 +41,22 @@
             padding: 10px;
             border-left: 10px solid #00ff00;
         }
-        .qualifications {
+        .skills {
             max-width: 600px;
             margin: 20px auto;
             text-align: left;
             padding: 10px;
         }
-        .qualifications div {
-            margin: 10px 0;
+        .skills div {
+            margin-top: 10px;
         }
         .bar {
             background: #004d00;
             height: 20px;
             width: 100%;
             position: relative;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
         .bar span {
             display: block;
@@ -107,7 +112,7 @@
     color: #0e910e;
     left: 2px;
     top: -2px;
-    z-index: 1; /* Ensure visibility */
+    z-index: 1;
 }
 
 .glitch::after {
@@ -115,7 +120,7 @@
     color: rgba(0, 0, 0, 0.027)f00;
     left: -2px;
     top: 2px;
-    z-index: 1; /* Ensure visibility */
+    z-index: 1; 
 }
 
 @keyframes glitch {
@@ -152,6 +157,38 @@
     top: 0px;
     z-index: 0;
 }
+    nav {
+    background: #002200;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    
+}
+
+.tab {
+    background: #004d00;
+    color: #00ff00;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.tab:hover {
+    background: #007700;
+}
+
+.tab-content {
+    display: none;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: left;
+    background: rgba(0, 51, 0, 0.8);
+    border-radius: 10px;
+}
+
     </style>
 </head>
 <body loading="lazy">
@@ -160,12 +197,17 @@
         <h1>Offensive security</h1>
         <p class="glitch" data-text="In the shadow...">In the shadow...</p>
     </header>
+    <nav>
+        <a href="#skills" class="tab">Skills</a>
+        <a href="#projects" class="tab">Projects</a>
+    </nav>
+    
     <div class="description">
         <strong<p style="color: #0a0a0a;">Welcome to My Portfolio , showcasing My skills</p></strong>
     </div>
-    <div class="qualifications">
+    <div id="skills" class="tab-content">
         <h2>Skills</h2>
-        <div>Cybersecurity <div class="bar"><span style="--bar-length: 90%;"></span></div></div>
+        <div>Cybersecurity<div class="bar"><span style="--bar-length: 90%;"></span></div></div>
         <div>2D game Development<div class="bar"><span style="--bar-length: 85%;"></span></div></div>
         <div>3D game Development <div class="bar"><span style="--bar-length: 50%;"></span></div></div>
         <div>Web Development <div class="bar"><span style="--bar-length: 99%;"></span></div></div>
@@ -176,7 +218,19 @@
         <div>3D Design <div class="bar"><span style="--bar-length: 67%;"></span></div></div>
         <div>Minecraft <div class="bar"><span style="--bar-length: 98%;"></span></div></div>
     </div>
+    <div id="projects" class="tab-content">
+        <h2>Projects</h2>
+        <p>Here are some projects I've worked on:</p>
+        <ul>
+            <li>Cybersecurity Training Program</li>
+            <li>2D Platformer Game</li>
+            <li>3D Adventure Game</li>
+            <li>Personal Portfolio Website</li>
+        </ul>
+    </div>
+    
     <p class="space">   </p>
+
     <footer>
         <div class="socials">
             <a href="#">GitHub</a>
@@ -190,7 +244,7 @@
         const ctx = canvas.getContext("2d");
     
         canvas.width = window.innerWidth;
-        canvas.height = 378; // Adjusted to fit the header
+        canvas.height = 378;
     
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
         const matrixChars = characters.split("");
@@ -219,10 +273,39 @@
     
         setInterval(drawMatrix, 50);
     
-        // Resize canvas when the window resizes
         window.addEventListener("resize", () => {
             canvas.width = window.innerWidth;
         });
+
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".tab-content");
+
+    function showTab(id) {
+        contents.forEach(content => content.style.display = "none"); // Hide all sections
+        const activeSection = document.getElementById(id);
+        if (activeSection) {
+            activeSection.style.display = "block"; // Show the selected section
+        }
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function (event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            showTab(targetId);
+            history.pushState(null, "", `#${targetId}`); // Update URL hash
+        });
+    });
+
+    // Show the correct tab on load (default to "skills" if no hash)
+    const initialTab = window.location.hash.substring(1) || "skills";
+    showTab(initialTab);
+});
+
+    </script>
+    
 </body>
 </html>
