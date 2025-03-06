@@ -15,41 +15,47 @@
             text-align: center;
             background: url("./bg.jpg");
             background-repeat: none;
-            background-attachment:fixed;
+            background-attachment: fixed;
             background-position-x: right;
             background-size: cover;
             overflow-x: hidden;
         }
+    
         ::-webkit-scrollbar {
-    display: none;
-}
-        h1{
+            display: none;
+        }
+    
+        h1 {
             font-size: 4.5rem;
             z-index: 1;
             color: #0e910e;
             position: relative;
         }
+    
         header {
             background: #003300;
             padding: 20px;
             position: relative;
         }
-
+    
         .description {
             max-width: 600px;
             margin: 20px auto;
             padding: 10px;
             border-left: 10px solid #00ff00;
         }
+    
         .skills {
             max-width: 600px;
             margin: 20px auto;
             text-align: left;
             padding: 10px;
         }
+    
         .skills div {
             margin-top: 10px;
         }
+    
         .bar {
             background: #004d00;
             height: 20px;
@@ -58,6 +64,7 @@
             margin-top: 10px;
             margin-bottom: 5px;
         }
+    
         .bar span {
             display: block;
             height: 100%;
@@ -66,6 +73,7 @@
             width: var(--bar-length);
             animation: in 1 5s;
         }
+    
         footer {
             background: #003300;
             padding: 10px;
@@ -73,122 +81,186 @@
             width: 100%;
             bottom: 0;
         }
+    
         .socials a {
             color: #00ff00;
             margin: 0 10px;
             text-decoration: none;
         }
-
-
-@keyframes in{
-    from{width: 0%;}
-    to{width: var(--bar-length);}
-}
-.glitch {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #00ff00;
-    position: relative;
-    text-transform: uppercase;
-    animation: glitch 0.3s infinite alternate;
-    text-align: center;
-    display: inline-block;
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    color: #058105;
-    background: transparent;
-    overflow: hidden;
-}
-
-.glitch::before {
-    animation: glitchBefore 0.3s infinite alternate;
-    color: #0e910e;
-    left: 2px;
-    top: -2px;
-    z-index: 1;
-}
-
-.glitch::after {
-    animation: glitchAfter 0.3s infinite alternate;
-    color: rgba(0, 0, 0, 0.027)f00;
-    left: -2px;
-    top: 2px;
-    z-index: 1; 
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-2px, -2px); }
-    80% { transform: translate(2px, 2px); }
-    100% { transform: translate(0); }
-}
-
-@keyframes glitchBefore {
-    0% { clip-path: inset(0 0 0 0); transform: translate(0); }
-    25% { clip-path: inset(50% 0 0 0); transform: translate(-3px, -3px); }
-    50% { clip-path: inset(0 0 50% 0); transform: translate(3px, 3px); }
-    75% { clip-path: inset(50% 0 0 0); transform: translate(-3px, -3px); }
-    100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-}
-
-@keyframes glitchAfter {
-    0% { clip-path: inset(0 0 0 0); transform: translate(0); }
-    25% { clip-path: inset(50% 0 0 0); transform: translate(3px, 3px); }
-    50% { clip-path: inset(0 0 50% 0); transform: translate(-3px, -3px); }
-    75% { clip-path: inset(50% 0 0 0); transform: translate(3px, 3px)   ; }
-    100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-}
-.space{
-    margin: 10px;
-}
-#matrixCanvas{
-    position: absolute;
-    left: 0px;
-    margin: 0px;
-    top: 0px;
-    z-index: 0;
-}
-    nav {
-    background: #002200;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
     
-}
-
-.tab {
-    background: #004d00;
-    color: #00ff00;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.tab:hover {
-    background: #007700;
-}
-
-.tab-content {
-    display: none;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 10px;
-    text-align: left;
-    background: rgba(0, 51, 0, 0.8);
-    border-radius: 10px;
-}
-
+    
+        @keyframes in {
+            from {
+                width: 0%;
+            }
+    
+            to {
+                width: var(--bar-length);
+            }
+        }
+    
+        .glitch {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00ff00;
+            position: relative;
+            text-transform: uppercase;
+            animation: glitch 0.3s infinite alternate;
+            text-align: center;
+            display: inline-block;
+        }
+    
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            color: #058105;
+            background: transparent;
+            overflow: hidden;
+        }
+    
+        .glitch::before {
+            animation: glitchBefore 0.3s infinite alternate;
+            color: #0e910e;
+            left: 2px;
+            top: -2px;
+            z-index: 1;
+        }
+    
+        .glitch::after {
+            animation: glitchAfter 0.3s infinite alternate;
+            color: rgba(0, 0, 0, 0.027)f00;
+            left: -2px;
+            top: 2px;
+            z-index: 1;
+        }
+    
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+    
+            20% {
+                transform: translate(-2px, 2px);
+            }
+    
+            40% {
+                transform: translate(2px, -2px);
+            }
+    
+            60% {
+                transform: translate(-2px, -2px);
+            }
+    
+            80% {
+                transform: translate(2px, 2px);
+            }
+    
+            100% {
+                transform: translate(0);
+            }
+        }
+    
+        @keyframes glitchBefore {
+            0% {
+                clip-path: inset(0 0 0 0);
+                transform: translate(0);
+            }
+    
+            25% {
+                clip-path: inset(50% 0 0 0);
+                transform: translate(-3px, -3px);
+            }
+    
+            50% {
+                clip-path: inset(0 0 50% 0);
+                transform: translate(3px, 3px);
+            }
+    
+            75% {
+                clip-path: inset(50% 0 0 0);
+                transform: translate(-3px, -3px);
+            }
+    
+            100% {
+                clip-path: inset(0 0 0 0);
+                transform: translate(0);
+            }
+        }
+    
+        @keyframes glitchAfter {
+            0% {
+                clip-path: inset(0 0 0 0);
+                transform: translate(0);
+            }
+    
+            25% {
+                clip-path: inset(50% 0 0 0);
+                transform: translate(3px, 3px);
+            }
+    
+            50% {
+                clip-path: inset(0 0 50% 0);
+                transform: translate(-3px, -3px);
+            }
+    
+            75% {
+                clip-path: inset(50% 0 0 0);
+                transform: translate(3px, 3px);
+            }
+    
+            100% {
+                clip-path: inset(0 0 0 0);
+                transform: translate(0);
+            }
+        }
+    
+        .space {
+            margin: 10px;
+        }
+    
+        #matrixCanvas {
+            position: absolute;
+            left: 0px;
+            margin: 0px;
+            top: 0px;
+            z-index: 0;
+        }
+    
+        nav {
+            background: #002200;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+    
+        }
+    
+        .tab {
+            background: #004d00;
+            color: #00ff00;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    
+        .tab:hover {
+            background: #007700;
+        }
+    
+        .tab-content {
+            display: none;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: left;
+            background: rgba(0, 51, 0, 0.8);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body loading="lazy">
